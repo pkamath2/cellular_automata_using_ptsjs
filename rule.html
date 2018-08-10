@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Rule - 1 Elementary Cellular Automaton</title>
+        
+        <style>
+            body{
+                font-family: 'American Typewriter', sans-serif
+            }
+            #ca-heading,#ca-dd {
+                text-align: center;
+            }
+            #ca-rule {
+                margin: auto;
+                width: 1000px;
+                height: 1000px;
+            }
+        </style>
+    </head>
+    <body onload="addrules()">
+        <div id="ca-heading"><h1>Elementary Cellular Automata</h1></div>
+        <div id="ca-dd">Choose a rule: 
+            <select id="ca-dd-sel">
+            </select>
+        </div>
+        <div>&nbsp;</div>
+        <div id="ca-rule"></div>
+        <script>
+            
+               
+        </script>
+    </body>
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script src="js/pts.min.js"></script>
+    <script src="js/rules.js"></script>
+</html>
+<!--//console.log("i,i_prev,i_next = "+i+","+i_prev+","+i_next+ " cell_state[i_prev] = "+cell_state[i_prev]+" cell_state[i_curr] "+cell_state[i_curr]+" cell_state[i_next] = "+cell_state[i_next]+" final = "+fill)-->

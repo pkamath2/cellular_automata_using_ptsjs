@@ -2,6 +2,7 @@
     <head>
         <title>Rule - 1 Elementary Cellular Automaton</title>
         <script src="js/pts.min.js"></script>
+        <script src="js/rules.js"></script>
         <style>
             #ca-rule1 {
                 width: 1000px;
@@ -15,36 +16,15 @@
             var space = new CanvasSpace("#ca-rule1").setup({retina: true,bgcolor: 'floralwhite',resize:false});
             var form = space.getForm();
             var num_squares = 100;
-            
-            cell_state = undefined;
-
-            rule0 = () => {
-                //1. Initialize first row
-                cell_state = new Array(num_squares*num_squares).fill(false);
-                cell_state[num_squares/2] = true;
-                
-                //2. Run Rule 0
-                for(i=0;i<num_squares*num_squares;i++){
-                    if(i>99){
-                        i_prev = i-101;
-                        i_curr = i-100;
-                        i_next = i-99;
-                        fill = !(cell_state[i_prev] | cell_state[i_curr] | cell_state[i_next]);
-                        cell_state[i] = fill;
-                        fill = fill?"#123":"#fff"
-                    }
-                }
-                return cell_state;
-            }
-            
+            var cell_state = [];
             space.add({
                 start: () => {
-                    cells = Create.gridPts(space.innerBound,num_squares,num_squares);
-                    cell_state = rule0();
+                    cells = Create.gridPts(space.innerBound, num_squares, num_squares);
+                    cell_state = rule(1, num_squares);
                 },
                 animate: (time, ftime) => {
                     cells.forEach((c,i) => {
-                        form.strokeOnly("#123", 0.5).fill(cell_state[i]?"#123":"#fff").square(c, 3); 
+                        form.strokeOnly("#123", 0.5).fill(cell_state[i]?"#4e5054":"#fff").square(c, 3); 
                     });
                 }
             });
