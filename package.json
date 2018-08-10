@@ -1,0 +1,18 @@
+{
+  "name": "pts-js-first-look",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -p 9090"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^3.6.1",
+    "http-server": "^0.11.1",
+    "pts": "^0.5.0",
+    "typescript": "^3.0.1"
+  }
+}
