@@ -5,8 +5,12 @@
             body{
                 font-family: 'American Typewriter', sans-serif
             }
-            #ca-heading,#ca-dd, #ca-start-dd {
+            #ca-heading,#ca-dd, #ca-start-dd, #ca-button{
                 text-align: center;
+                font-family: 'American Typewriter', sans-serif;
+            }
+            #ca-button button{
+                padding: 10px 10px;
             }
             #ca-rule {
                 margin: auto;
@@ -27,6 +31,10 @@
         <div id="ca-dd">Choose a rule: 
             <select id="ca-dd-sel">
             </select>
+        </div>
+        <div>&nbsp;</div>
+        <div id="ca-button">
+            <button onclick="generate()">Generate</button>
         </div>
         <div>&nbsp;</div>
         <div id="ca-rule"></div>

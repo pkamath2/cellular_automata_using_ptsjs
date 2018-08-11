@@ -6,7 +6,7 @@ updatestate = (rule_num, num_squares,initializer) => {
     
     if(initializer && initializer == 'RBC'){
         //Randomizing initial state
-        for(j=1;j<=99;j++){
+        for(j=1;j<=299;j++){
             cell_state[Math.floor(Math.random()*100*j)] = true;
         }
     }else{
@@ -25,17 +25,17 @@ updatestate = (rule_num, num_squares,initializer) => {
     return cell_state;
 }
 
+generate = () => {
+    $("#ca-rule").html("");
+    createSpace($("#ca-dd-sel").val().split(" ")[1], $("#ca-start-dd-sel").val());
+}
+
 addrulesdd = () => {
     var rules = $("#ca-dd-sel");
-    var initializer = $("#ca-start-dd-sel");
     for(i=1;i<256;i++){
         opt = "<option>Rule "+i+"</option>";
         rules.append(opt);
     }   
-    rules.on('change', function() {
-        $("#ca-rule").html("");
-        createSpace(rules.val().split(" ")[1], initializer.val());
-    })
 }
 
 createSpace = (rule_num, initializer) => {
