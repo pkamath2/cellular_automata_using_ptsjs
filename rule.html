@@ -5,7 +5,7 @@
             body{
                 font-family: 'American Typewriter', sans-serif
             }
-            #ca-heading,#ca-dd {
+            #ca-heading,#ca-dd, #ca-start-dd {
                 text-align: center;
             }
             #ca-rule {
@@ -17,6 +17,13 @@
     </head>
     <body onload="addrulesdd()">
         <div id="ca-heading"><h1>Elementary Cellular Automata</h1></div>
+        <div id="ca-start-dd">Choose an initializer: 
+                <select id="ca-start-dd-sel">
+                    <option value="SBC">Single Black Cell</option>
+                    <option value="RBC">Randomly Strewn Black Cells</option>
+                </select>
+        </div>
+        <div>&nbsp;</div>
         <div id="ca-dd">Choose a rule: 
             <select id="ca-dd-sel">
             </select>

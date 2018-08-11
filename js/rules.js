@@ -1,14 +1,17 @@
 Pts.namespace(window); 
 
-updatestate = (rule_num, num_squares) => {
+updatestate = (rule_num, num_squares,initializer) => {
     //1. Initialize first row
     cell_state = new Array(num_squares*num_squares).fill(false);
-    cell_state[num_squares/2] = true;
-
-    //Randomizing initial state
-    // for(j=1;j<=99;j++){
-    //     cell_state[Math.floor(Math.random()*100*j)] = true;
-    // }
+    
+    if(initializer && initializer == 'RBC'){
+        //Randomizing initial state
+        for(j=1;j<=99;j++){
+            cell_state[Math.floor(Math.random()*100*j)] = true;
+        }
+    }else{
+        cell_state[num_squares/2] = true;
+    }
     
     //2. Run Rules
     for(i=0;i<num_squares*num_squares;i++){
@@ -24,17 +27,18 @@ updatestate = (rule_num, num_squares) => {
 
 addrulesdd = () => {
     var rules = $("#ca-dd-sel");
+    var initializer = $("#ca-start-dd-sel");
     for(i=1;i<256;i++){
         opt = "<option>Rule "+i+"</option>";
         rules.append(opt);
     }   
     rules.on('change', function() {
         $("#ca-rule").html("");
-        createSpace(rules.val().split(" ")[1]);
+        createSpace(rules.val().split(" ")[1], initializer.val());
     })
 }
 
-createSpace = (rule_num) => {
+createSpace = (rule_num, initializer) => {
     var space = new CanvasSpace("#ca-rule").setup({retina: true,bgcolor: 'floralwhite',resize:false});
     var form = space.getForm();
     var num_squares = 300;
@@ -43,7 +47,7 @@ createSpace = (rule_num) => {
     space.add({
         start: () => {
             cells = Create.gridPts(space.innerBound, num_squares, num_squares);
-            cell_state = updatestate(rule_num, num_squares);
+            cell_state = updatestate(rule_num, num_squares, initializer);
         },
         animate: (time, ftime) => {
             cells.forEach((c,i) => {
