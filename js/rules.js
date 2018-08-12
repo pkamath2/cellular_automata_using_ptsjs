@@ -1,13 +1,13 @@
 Pts.namespace(window); 
 
-updatestate = (rule_num, num_squares,initializer) => {
+updatestate = (rule_num, num_squares, initializer) => {
     //1. Initialize first row
     cell_state = new Array(num_squares*num_squares).fill(false);
     
     if(initializer && initializer == 'RBC'){
         //Randomizing initial state
         for(j=1;j<=299;j++){
-            cell_state[Math.floor(Math.random()*100*j)] = true;
+            cell_state[Math.floor(Math.random()*1000*j)] = true;
         }
     }else{
         cell_state[num_squares/2] = true;
@@ -15,7 +15,7 @@ updatestate = (rule_num, num_squares,initializer) => {
     
     //2. Run Rules
     for(i=0;i<num_squares*num_squares;i++){
-        if(i>num_squares-1){
+        if(!cell_state[i] && i>num_squares-1){
             i_prev = i-(num_squares+1);
             i_curr = i-(num_squares);
             i_next = i-(num_squares-1);
