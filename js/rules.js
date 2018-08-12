@@ -51,7 +51,7 @@ createSpace = (rule_num, initializer) => {
         },
         animate: (time, ftime) => {
             cells.forEach((c,i) => {
-                form.strokeOnly("#123", 0.5).fill(cell_state[i]?"#4e5054":"#fff").square(c, 2); 
+                form.strokeOnly("#123", 0.1).fill(cell_state[i]?"#4e5054":"#fff").square(c, 2); 
             });
         }
     });
