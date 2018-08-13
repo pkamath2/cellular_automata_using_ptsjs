@@ -7,7 +7,7 @@ generate = () => {
     cell_state = new Array(num_squares*num_squares).fill(false);
 
     //2. Get Fibo sequence and set cell state
-    $.when($.get('/data/fibonacci.txt')).done(
+    $.when($.get('data/fibonacci.txt')).done(
         function(data){
             data = data.split("\n");
             for(i=0;i<data.length;i++){
